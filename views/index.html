@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+      <title>URL Shortener</title>
+      <link rel="shortcut icon" href="https://cdn.glitch.com/45d624b6-3813-4c9d-9c0e-b6a9ea5994b1%2F45d624b6-3813-4c9d-9c0e-b6a9ea5994b1%252Fimage.png?1536321060190" type="image/x-icon"/>
+      <link href="https://fonts.googleapis.com/css?family=PT+Serif|Roboto+Slab" rel="stylesheet">
+      <link href="/public/style.css" rel="stylesheet" type="text/css">
+   </head>
+
+   <body>
+      <div class="container">
+        <h2>API Project: URL Shortener Microservice</h2>
+        <h3>User Story: </h3>
+        <ol>
+          <li>I can POST a URL to <code>[project_url]/api/shorturl/new</code> and I will receive a shortened URL in the JSON response.<br>Example : <code>{"original_url":"www.google.com","short_url":1}</code></li>
+          <li>If I pass an invalid URL that doesn't follow the <code>http(s)://www.example.com(/more/routes)</code> format, the JSON response will contain an error like <code>{"error":"invalid URL"}</code><br>
+          HINT: to be sure that the submitted url points to a valid site you can use the function <code>dns.lookup(host, cb)</code> from the <code>dns</code> core module.</li>
+          <li>When I visit the shortened URL, it will redirect me to my original link.</li>
+        </ol>
+        
+        <h3>Amount of URLs you can save:</h3>
+        <p>
+          10 URLs. If the limit is exceeded, the next link will replace the first one, e.g. URL 11 replaces URL 1.
+        </p>
+        
+        <h3>Short URL Creation </h3>
+        <p>
+          example: <code>POST [project_url]/api/shorturl/new</code> - <code>https://www.google.com</code>
+        </p>
+         
+        <form action="api/shorturl/new" method="POST">
+          <label for="url_input">URL to be shortened</label>
+          <input id="url_input" type="text" name="url" value="https://www.freecodecamp.com"><br>
+          <input id="captcha" type="number" name="captcha">
+          <span class="img-label"><img src="/captcha.png" /></span>
+          <input type="submit" value="POST URL">
+        </form>
+        <h3>Example Usage:</h3>
+        <a target="_blank" href="https://url-shortener-api-project.glitch.me/api/shorturl/3">
+          [this_project_url]/api/shorturl/3
+        </a>
+
+        <h3>Will Redirect to:</h3>
+        <p>https://forum.freecodecamp.com</p>
+      </div>
+      <div class="footer">
+        <p>
+          Created by <a href="https://glitch.com/@Lana-Light">Lana-Light</a>
+        </p>
+      </div>
+   </body>
+
+</html>
