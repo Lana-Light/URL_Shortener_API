@@ -1,0 +1,31 @@
+{
+  "name": "shorturl",
+  "version": "0.0.1",
+  "description": "API project for freeCodeCamp",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.0.0-alpha.2",
+    "mongodb": "^3.1.4",
+    "mongoose": "^5.2.13",
+    "cors": "^2.8.4",
+    "body-parser": "^1.18.3",
+    "captchapng": "^0.0.1"
+  },
+  "engines": {
+    "node": "10.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lana-Light/URL_Shortener_API"
+  },
+  "keywords": [
+    "node",
+    "hyperdev",
+    "express"
+  ],
+  "author": "Lana-Light",
+  "license": "MIT"
+}
