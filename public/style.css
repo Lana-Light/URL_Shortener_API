@@ -1,0 +1,120 @@
+body {
+  font-family: 'PT Serif', 'Roboto Slab', serif;
+	font-size: 17px;
+	color: #005500;
+	background: radial-gradient(rgba(196,255,255,0.5), rgba(176,255,255,1)), url("https://cdn.glitch.com/45d624b6-3813-4c9d-9c0e-b6a9ea5994b1%2Fs1200.webp?1536321233863");
+	background-color: #FaFaFa;
+  text-align: center;
+	line-height: 1.4em;
+}
+
+.container {
+	padding: 0;
+	margin-top: 40px;
+}
+
+h3 {
+  margin-top: 30px;
+}
+
+.footer {
+  border-radius: 20px;
+  padding: 10px;
+  background: rgba(255,255,200,0.8);
+  background: rgba(200,255,200,0.7);
+	margin-top: 40px;
+}
+
+.user-stories {
+  position: relative;
+  text-align: justify;
+  max-width: 700px;
+  margin: 15px auto;
+}
+code {
+  font-family: monospace;
+  padding: 2px;
+  color: #005;
+  background-color: #fff;
+}
+ol {
+	list-style-position: inside;
+}
+ul {
+	list-style-type: none;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+.user-stories li {
+  margin-bottom: 1em;
+}
+
+a {
+  color: #003399;
+}
+
+a:hover {
+  color: #1155ee;
+}
+
+form {
+  background: rgba(200,255,200,0.7);
+  border: solid 1px #117700;
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: 20px;
+  max-width: 600px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 5px;
+  border: inset 2px #005500;
+}
+
+input[type=text] {
+  width: 220px;
+  text-align: center;
+}
+
+input:focus {
+  border: inset 2px lime;
+}
+
+input[type=submit] {
+  background: green;
+  color: white;
+  border-radius: 10px;
+  border: solid 2px #005500;
+  cursor: pointer;
+  transition: 0.5s;
+  box-shadow: 1px 1px 8px 1px #005500;
+}
+
+input[type=submit]:hover {
+  background: #33cc33;
+  color: #ffffcc;
+  border-color: green;
+}
+
+input[type=submit]:active {
+  box-shadow: none;
+  background: lime;
+}
+
+input:active, input:focus {
+  outline: none;
+}
+
+img {
+  border: green solid thin;
+  border-radius: 5px;
+  margin-bottom: -10px;
+}
