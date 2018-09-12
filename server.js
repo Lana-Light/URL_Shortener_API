@@ -56,30 +56,35 @@ required: true
   }
 });
 var Link = mongoose.model("Link", Links);
-
+ 
 app.post("/api/shorturl/new", function(req, res) {
   if(req.body.captcha==captcha) {
    var exp=/^https?:\/\//;
   if(exp.test(req.body.url)) {
    var longUrl = new URL(req.body.url);
    dns.lookup(longUrl.hostname, function(err, link, ipType) {
-    if(link) {
+  if(link) {
   Link.find({longUrl: longUrl.href}, function(err, data) {
     if(err) { return res.json({error: err}); }
-  console.log("data: ",data); 
-    if(data.length===0) {
+  if(data.length===0) {
     Link.find(function(err, data) {
-      if(err) { return res.json({error: err}); }
-  var shortUrl = data.length+1;
-    if(data.length>9) { shortUrl = data[0].shortUrl; }
-  var l = new Link({longUrl: longUrl.href, shortUrl: shortUrl}); 
-   console.log("data===[]",data);
-   l.save(function(err, data) {
-   if(err) { return res.json({error: err}); }
+    if(err) { return res.json({error: err}); }
+     function save() {
+   var l = new Link({longUrl: longUrl.href, shortUrl: shortUrl}); 
+   l.save(function(err, data) { 
+    if(err) { return res.json({error: err}); }
+     res.json({"original_url": longUrl.href,"short_url": shortUrl});
    });
-   res.json({"original_url": longUrl.href,"short_url": shortUrl});
+      } 
+   var shortUrl = data.length+1;
+      if(data.length>9) { 
+        shortUrl = data[0].shortUrl;
+        Link.deleteOne({shortUrl: shortUrl}, function(err, data) {
+        if(err) { return res.json({error: err}); }
+          save();
+        });
+      } else { save(); }
     }); } else {
-      console.log("data!=[]",data,data===[]);
       res.json({status: "this url has already been saved", longUrl: data[0].longUrl, shortUrl: data[0].shortUrl});
     } 
 });  
@@ -91,7 +96,7 @@ app.post("/api/shorturl/new", function(req, res) {
 
 app.get("/api/shorturl/:new", function(req, res) {
  Link.find({shortUrl: req.params.new}, function(err, data) {
-  if(err) {return res.json({error: err}); }
+  if(err) { return res.json({error: err}); }
    data.length>0 ? res.redirect(data[0].longUrl) : res.json({error: "Not Found"});
  });
 });
